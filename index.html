@@ -87,7 +87,7 @@
     }
 
     function showFifthPopup() {
-      if (confirm("I will not bother you again. I think I've been a bother to you.")) {
+      if (confirm("I think I've been a bother to you.")) {
         showSixthPopup();
       }
     }
@@ -95,11 +95,13 @@
     function showSixthPopup() {
       if (confirm("I want to let you know I like your company. I enjoy talking to you. sharing some jokes and teasing each other.")) {
         showSeventhPopup();
+         setTimeout(showFourthPopup, 5000); // Delay of 2000 milliseconds (2 seconds)
+      }
       }
     }
 
     function showSeventhPopup() {
-      if (confirm("That was fun! I enjoyed it. In the state, I considered having feelings.")) {
+      if (confirm("In the state, I considered having feelings.")) {
         alert("🎄 Merry Christmas and a Happy New Year!");
       }
     }
