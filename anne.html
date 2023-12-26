@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>HI</title>
+  <style>
+     body {
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #0b446d; /* Dark blue background */
+      background-image: url('https://www.transparenttextures.com/patterns/snow.png'); /* Snowflake pattern */
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #cc0000; /* Christmas red */
+      text-shadow: 2px 2px 4px #ffffff; /* White shadow for text */
+    }
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #2e8b57; /* Dark green */
+      color: white;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #228b22; /* Lighter green on hover */
+    }
+    /* Falling snow animation */
+    .snowflakes {
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.6;
+      background: transparent;
+      background-image: url('https://www.transparenttextures.com/patterns/snow.png'); /* Snow pattern */
+      animation: snow 20s linear infinite;
+    }
+    @keyframes snow {
+      0% { background-position: 0 0, 0 0, 0 0; }
+      100% { background-position: 500px 1000px, 400px 400px, -100px 200px; }
+    }
+    @media screen and (max-width: 480px) { 
+      .btn-container { flex-direction: column; } 
+      button { margin: 10px 0; } 
+    }
+  </style>
+</head>
+<body>
+  <!-- Snowflake effect -->
+  <div class="snowflakes"></div>
+
+  <h1>Is everything ok?</h1>
+  <div class="btn-container">
+    <button onclick="showSecondPopup()">Yes</button>
+    <button onclick="showFinalPopup()">No</button>
+  </div>
+  <script>
+   function showSecondPopup() {
+      if (confirm("Hello 😊, I've noticed you're not often online. When you are online, you don't chat with me, and your replies seem a bit distant. To be honest, I enjoy your company.")) {
+        showThirdPopup();
+      }
+    }
+
+    function showThirdPopup() {
+      if (confirm("I don't know why and when this happened. I'm a bit sad and worried that if I did something wrong.")) {
+        showFourthPopup();
+      }
+    }
+
+    function showFourthPopup() {
+      if (confirm("If you have a problem with me, I'll give you some space now.")) {
+        showFifthPopup();
+      }
+    }
+
+    function showFifthPopup() {
+      if (confirm("I think I've been a bother to you.")) {
+        showSixthPopup();
+      }
+    }
+
+    function showSixthPopup() {
+      if (confirm("I want to let you know I like your company. I enjoy talking to you. sharing some jokes and teasing each other.")) {
+        showSeventhPopup();
+         setTimeout(showFourthPopup, 5000); // Delay of 2000 milliseconds (2 seconds)
+      }
+      }
+    
+
+    function showSeventhPopup() {
+      if (confirm("In the state, I considered having feelings.")) {
+        alert("🎄 Merry Christmas and a Happy New Year!");
+      }
+    }
+
+    function showFinalPopup() {
+  if (confirm("Why?")) {
+    
+  }
+}
+
+// Get the modal
+const modal = document.getElementById("feedback-modal");
+
+// Get the button that opens the modal
+const btn = document.getElementById("feedback-button");
+
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+// When the user submits the feedback form
+const form = document.getElementById("feedback-form");
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  const name = document.getElementById("new-name").value; // Changed 'name' to 'new-name'
+  const email = document.getElementById("new-email").value; // Changed 'email' to 'new-email'
+  const feedback = document.getElementById("new-feedback").value; // Changed 'feedback' to 'new-feedback'
+  const subject = "Feedback from " + name;
+  const body = "Email: " + email + "\nFeedback: " + feedback;
+  const mailtoLink = "mailto:new-email@example.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body); // Changed the email address
+  window.location.href = mailtoLink;
+  modal.style.display = "none";
+});
+
+
+  </script>
+</body>
+</html>
